@@ -23,7 +23,7 @@ public class ProxyController {
     public ProxyController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-
+    // GET Example
     @Operation(summary = "Fetch your IP", description = "This method performs a GET request to an external API.")
     @GetMapping("/external")
     public String callExternalAPI() {
@@ -31,7 +31,7 @@ public class ProxyController {
         String response = restTemplate.getForObject(externalUrl, String.class);
         return response;
     }
-
+    // POST Example
     @Operation(summary = "Fetch data from external API via POST", description = "This method calls an external API with a POST request and returns the response.")
     @PostMapping("/external")
     public String postToExternalAPI(@RequestBody @Schema(description = "Request body for external API", example = "{\"key\":\"value\"}") ExternalRequest request) {
